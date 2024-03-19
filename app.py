@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
-SocketIO = SocketIO(app)
+socketio = SocketIO(app)
 
 
 @app.route("/")
@@ -10,11 +10,10 @@ def index():
     return render_template("index.html")
 
 
-@SocketIO.on("message")
+@socketio.on("message")
 def handle_message(msg):
-    print("Message: " + msg)
-    SocketIO.emit("message", msg)
+    emit("message", msg, broadcast=True)
 
 
 if __name__ == "__main__":
-    SocketIO.run(app, debug=True)
+    socketio.run(app, debug=True)
