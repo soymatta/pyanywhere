@@ -19,7 +19,7 @@ socket.on("message", function (msg) {
 
 socket.on("disconnect", function () {
   console.log("Conexión WebSocket cerrada. Intentando reconectar...");
-  setTimeout(connectWebSocket, 500);
+  socket.connect();
 });
 
 document.getElementById("messageForm1").onsubmit = function (event) {
