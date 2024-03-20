@@ -1,6 +1,6 @@
 console.log("Prueba de JS");
 
-var socket = io.connect("https://" + document.domain + ":" + location.port, {
+var socket = io.connect("wss://" + document.domain + ":" + location.port, {
   secure: true,
   transports: ["websocket"],
 });
