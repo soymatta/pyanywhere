@@ -1,7 +1,12 @@
 console.log("Prueba de JS");
 
-var socket = io.connect("wss://" + document.domain + ":" + location.port, {
+var socket = io.connect("https://" + document.domain + ":" + location.port, {
   secure: true,
+  transports: ["websocket"],
+});
+
+socket.on("connect", function () {
+  console.log("Conexión establecida con el servidor WebSocket");
 });
 
 document.getElementById("messageForm1").onsubmit = function (event) {
@@ -16,4 +21,8 @@ socket.on("message", function (msg) {
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(msg));
   ul.appendChild(li);
+});
+
+socket.on("disconnect", function () {
+  console.log("Conexión WebSocket cerrada");
 });
