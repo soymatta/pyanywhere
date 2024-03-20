@@ -1,4 +1,8 @@
-var socket = io.connect("http://" + document.domain + ":" + location.port);
+console.log("Prueba de JS");
+
+var socket = io.connect("wss://" + document.domain + ":" + location.port, {
+  secure: true,
+});
 
 document.getElementById("messageForm1").onsubmit = function (event) {
   event.preventDefault();

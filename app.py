@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Habilitar CORS para toda la aplicación
+CORS(app)  # Enable CORS for the entire application
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 
@@ -18,4 +18,4 @@ def handle_message(msg):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app)
