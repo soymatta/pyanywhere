@@ -1,5 +1,6 @@
 console.log("Prueba de JS");
 
+// Use wss instead of ws in the connection URL
 socket = io.connect("wss://" + document.domain + ":" + location.port, {
   secure: true,
   transports: ["websocket"],
